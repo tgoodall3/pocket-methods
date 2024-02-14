@@ -1,0 +1,129 @@
+.instrument-selection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    position: relative;
+    height: 80vh;
+    background: linear-gradient(rgba(241, 185, 9,0.5), rgba(238, 138, 24,1)) center/cover no-repeat;
+}
+
+.instrument-selection h1{
+    font-size: 4rem;
+    color: #5D20C7;
+}
+
+ button{
+    width: 20%;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #1b89c8;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 11px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+ button:hover{
+    background-color: #5D20C7;
+}
+
+ button .arrow{
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+ button span{
+    text-align: center;
+    font-size: 2rem;
+}
+
+ .dropdown{
+    font-size: 1.3rem;
+    background-color: white;
+    width: 18%;
+    border-radius: 4px;
+    cursor: pointer;
+   }
+
+   .dropdown p:hover {
+    background-color: #5D20C7;
+   }
+
+ .dropdown p{
+    margin: 0;
+    padding: 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.instrument-selection .girl{
+    overflow: hidden;
+    position: absolute;
+    top: 55%;
+    left: 67%;
+    transform: translateY(-50%);
+    height: 100%;
+    width: 400px;
+}
+
+.instrument-selection .girl img{
+    display: flex;
+    width: 200px;
+    height: 500px;
+}
+
+.continue-button {
+    width: 17.5%;
+    padding: 1rem 1rem;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #1b89c8;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    text-decoration: none;
+}
+
+.continue-button:hover{
+    background-color: #5D20C7;
+}
+
+.back {
+    position: absolute;
+    text-decoration: none;
+    color: #1b89c8;
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 1rem;
+    padding: .2rem;
+    /* border: 2px solid #5D20C7; */
+    border-radius: 11px;
+    transition: 0.3s;
+    top: 5px;
+    left: 0;
+}
+
+
+.back .arrow{
+    padding: 0;
+    margin: 10px;
+    font-size: 5rem;
+    font-weight: bold;
+    height: 20px;
+}
+
+.back .arrow:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+    color: #5D20C7;   
+}
+

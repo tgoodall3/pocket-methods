@@ -1,0 +1,74 @@
+.modeSelect{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    width: 100%;
+    background: linear-gradient(to right, rgba(177, 232, 217,0.5), rgba(74, 154, 207,1)) center/cover no-repeat;
+}
+
+.mode img{
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    mix-blend-mode:multiply;    
+}
+
+
+.modeSelect .quest img:hover, .skill img:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+
+
+.mode{
+    display: flex;
+    margin-top: 10px;
+}
+
+    .selected {
+        background-color: #f0f0f0;
+        border: 2px solid #1b89c8;
+        color: #1b89c8;
+      
+    }
+
+    .selected:focus {
+        outline: none;
+        box-shadow: 0 0 5px #1b89c8;
+    }
+
+
+.back {
+    position: absolute;
+    text-decoration: none;
+    color: #1b89c8;
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 1rem;
+    padding: .2rem;
+    /* border: 2px solid #5D20C7; */
+    border-radius: 11px;
+    transition: 0.3s;
+    top: 5px;
+    left: 0;
+}
+
+
+.back .arrow{
+    padding: 0;
+    margin: 10px;
+    font-size: 5rem;
+    font-weight: bold;
+    height: 20px;
+}
+
+.back .arrow:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+    color: #5D20C7;   
+}
+
