@@ -52,33 +52,36 @@
 // export default InstrumentSelection;
 
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import '../../Styles/instrumentSelection.css';
 import girl1 from '../../Assets/images/girl-1-2.png';
 import { Link } from 'react-router-dom';
+import InstrumentContext from '../InstrumentContext';
 
-function InstrumentSelection() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedInstrument, setSelectedInstrument] = useState('');
-    const [instruments, setInstruments] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:5000/api/instruments')
+    function InstrumentSelection() {
+        const { setInstrument } = useContext(InstrumentContext);
+        const [isOpen, setIsOpen] = useState(false);
+        const [selectedInstrument, setSelectedInstrument] = useState('');
+        const [instruments, setInstruments] = useState([]);
+      
+        useEffect(() => {
+          fetch('http://localhost:5000/api/instruments')
             .then(response => response.json())
             .then(data => setInstruments(data))
             .catch(error => console.error('Error:', error));
-            console.log(instruments);
-    }, []);
-
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
-
-    const selectInstrument = (instrument) => {
-        setSelectedInstrument(instrument);
-        setIsOpen(false);
-    };
-
+        }, []);
+      
+        const toggleDropdown = () => {
+          setIsOpen(!isOpen);
+        };
+      
+        const selectInstrument = (instrument) => {
+          setSelectedInstrument(instrument);
+          setInstrument(instrument);
+          setIsOpen(false);
+        };
+      
+  
     return (
         <div className='instrument-selection'>
             <Link className='back' to={'/   '}><p className='arrow'>&#8592;</p></Link>
@@ -98,16 +101,16 @@ function InstrumentSelection() {
                 </div>
             )}
 
-            <div className='girl'>
-                <img src={girl1} alt='girl1' />
-            </div>
-
-            {selectedInstrument && (
-                <Link to={'/mode'}  className='continue-button'>Continue</Link>
-            )}
-                
-        </div>
+<div className='girl'>
+        <img src={girl1} alt='girl' />
+      </div>
+   
+      <Link to="/mode" className='continue-button'>Continue</Link>
+    </div>
     );
 }
 
 export default InstrumentSelection;
+
+
+

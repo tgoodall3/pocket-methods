@@ -9,9 +9,9 @@
 }
 
 .mode img{
-    padding: 2rem;
+    padding: 1rem;
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     height: auto;
     mix-blend-mode:multiply;    
 }
@@ -33,7 +33,6 @@
         background-color: #f0f0f0;
         border: 2px solid #1b89c8;
         color: #1b89c8;
-      
     }
 
     .selected:focus {

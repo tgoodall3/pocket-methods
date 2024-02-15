@@ -56,3 +56,22 @@
 .right img{
     overflow: hidden;
 }
+
+@media screen and (max-width: 768px){
+    .hero h1{
+        font-size: 3rem;
+        width: 80%;
+        margin-left: 35px;
+    }
+    .hero h2{
+        font-size: 1.5rem;
+    }
+    .hero a{
+        width: 200px;
+        margin: 0 3.6rem;
+    }
+    .right{
+        display: none;
+    }
+    
+}

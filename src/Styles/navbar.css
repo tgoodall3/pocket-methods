@@ -10,8 +10,20 @@ nav{
     z-index: 100;
     color: white;
     background-color: #1B89C8;
+    overflow: hidden;
 
 }
+
+nav .account{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: white;
+}
+
 
 nav a{
     color: white;
@@ -34,17 +46,6 @@ nav ul{
     list-style: none;
 }
 
-nav .account{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 40px;
-    background-color: white;
-    border-radius: 50%;
-    margin-top: -8px;
-}
-
 nav .logo{
     display: flex;
     height: 100px;
@@ -52,3 +53,142 @@ nav .logo{
     margin-top: 10px;
     
 }
+
+.hamburger {
+    position: absolute;
+    right: 10px;
+    top: 42px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+  }
+  
+  .hamburger div {
+    width: 2rem;
+    height: 0.25rem;
+    background: #333;  
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+  }
+  
+  .links {
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+    display: inline-block;
+  }
+
+  .links.open ul {
+    display: list-item;
+    align-items: center;
+    text-align: center;
+}
+
+    .links.open li {
+        margin-right: 20px;
+    }
+  
+.links.open {
+    transform: translateX(100%);
+    display: flex;
+    flex-direction: column;
+}
+
+.links.open.slide-in {
+    transform: translateX(0);
+    transition: 1s ease-in-out;
+}
+
+.links.left{
+  display: none;
+}
+
+  @media screen and (min-width: 601px){
+        .hamburger{
+            display: none;
+        }
+
+        .links{
+            display: flex;
+                 
+        }
+
+        .nav .account{
+            display: none;
+
+        }
+  }
+
+  @media screen and (max-width: 600px){
+
+    nav .account{
+        display: none;
+    }
+
+
+
+    nav .logo{
+        margin-left: 55px;
+    }
+    .hamburger {
+      display: flex;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      position: absolute;
+      top: 100px;
+      right: 0;
+      height: 100vh;
+      width: 100%;
+      background-color: #1B89C8;
+      transition: transform 0.3s ease-in-out;
+      transform: translateX(100%);
+    }
+
+    .links.closed{
+      display: none;
+    }
+
+    .links.open {
+      transform: translateX(0);
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    .logo{
+      display: flex;
+    }
+
+    .links li a {
+      font-size: 2rem;
+    }
+    .links li a:hover {
+      color: #5D20C7;
+    }
+    .links li a {
+      color: white;
+    }
+    .links li {
+      padding: 1rem 0;
+    }
+    .links li a {
+      color: white;
+    }
+    .links li {
+      opacity: 1;
+    }
+    
+  } 

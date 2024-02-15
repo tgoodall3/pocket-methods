@@ -8,6 +8,8 @@
     background: linear-gradient(rgba(241, 185, 9,0.5), rgba(238, 138, 24,1)) center/cover no-repeat;
 }
 
+
+
 .instrument-selection h1{
     font-size: 4rem;
     color: #5D20C7;
@@ -28,9 +30,7 @@
     margin-top: 10px;
 }
 
- button:hover{
-    background-color: #5D20C7;
-}
+
 
  button .arrow{
     font-size: 1.7rem;
@@ -39,7 +39,7 @@
 
  button span{
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
  .dropdown{
@@ -127,3 +127,36 @@
     color: #5D20C7;   
 }
 
+
+@media screen and (max-width: 768px){
+    .instrument-selection{
+        height: 100vh;
+        overflow: hidden;
+
+    }
+
+    .instrument-selection h1{
+        font-size: 3rem;
+        margin-left: 70px;
+        margin-top: 8rem;
+    }
+
+    button{
+        width: 50%;
+    }
+
+    .continue-button{
+        width: 42%;
+    }
+
+    .dropdown{
+        width: 47%;
+    }
+
+    .instrument-selection .girl{
+        display: none;
+    }
+
+
+    
+}

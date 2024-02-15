@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useContext } from 'react';
 import '../../Styles/modeSelect.css';
 import '../../Styles/instrumentSelection.css';
 import { Link } from 'react-router-dom';
-import Quest from '../../Assets/images/Quest.png';
-import Skill from '../../Assets/images/Skill.png';
+import { useLocation } from 'react-router-dom';
+import InstrumentContext from '../InstrumentContext';
+
 
 function ModeSelect() {
+    const { instrument } = useContext(InstrumentContext);
+
+
     const [isOpen, setIsOpen] = useState(false);
     const [selectedDifficulty, setSelectedDifficulty] = useState('');
     const [selectedMode, setSelectedMode] = useState(''); // Added selectedMode state
@@ -25,6 +29,11 @@ function ModeSelect() {
         setSelectedMode(mode);
     };
 
+    const handleStart = () => {
+        const level = `/levels/${instrument}`;
+        window.location.href = level;
+      };
+
     useEffect(() => {
         fetch('http://localhost:5000/api/difficulties')
             .then(response => response.json())
@@ -38,6 +47,8 @@ function ModeSelect() {
             console.log(modes);
 
     }, []);
+
+    console.log(instrument)
 
     return (
         <div className='modeSelect'>
