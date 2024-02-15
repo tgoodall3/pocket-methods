@@ -56,10 +56,9 @@ import React, { useEffect, useState, useContext } from 'react';
 import '../../Styles/instrumentSelection.css';
 import girl1 from '../../Assets/images/girl-1-2.png';
 import { Link } from 'react-router-dom';
-import InstrumentContext from '../InstrumentContext';
-
+import GameContext from '../GameContext';
     function InstrumentSelection() {
-        const { setInstrument } = useContext(InstrumentContext);
+        const { setInstrument } = useContext(GameContext);
         const [isOpen, setIsOpen] = useState(false);
         const [selectedInstrument, setSelectedInstrument] = useState('');
         const [instruments, setInstruments] = useState([]);
@@ -105,7 +104,9 @@ import InstrumentContext from '../InstrumentContext';
         <img src={girl1} alt='girl' />
       </div>
    
-      <Link to="/mode" className='continue-button'>Continue</Link>
+    {selectedInstrument && (
+        <Link to="/mode" className='continue-button'>Continue</Link>
+    )}
     </div>
     );
 }

@@ -3,12 +3,10 @@ import '../../Styles/modeSelect.css';
 import '../../Styles/instrumentSelection.css';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import InstrumentContext from '../InstrumentContext';
-
+import GameContext from '../GameContext';
 
 function ModeSelect() {
-    const { instrument } = useContext(InstrumentContext);
-
+    const { instrument, setMode, setDifficulty } = useContext(GameContext);
 
     const [isOpen, setIsOpen] = useState(false);
     const [selectedDifficulty, setSelectedDifficulty] = useState('');
@@ -22,11 +20,14 @@ function ModeSelect() {
 
     const selectDifficulty = (difficulty) => {
         setSelectedDifficulty(difficulty);
+        setDifficulty(difficulty); // Update the difficulty in the context
         setIsOpen(false);
-    };
+      };
 
     const selectMode = (mode) => { // Added selectMode function
         setSelectedMode(mode);
+        setMode(mode); // Update the mode in the context
+
     };
 
     const handleStart = () => {
@@ -74,7 +75,7 @@ function ModeSelect() {
             )}
 
 {selectedMode && selectedDifficulty && (
-        <Link to={'/'} className='continue-button'>Continue</Link>
+        <Link to={'/level'} className='continue-button'>Continue</Link>
 )}
         </div>
     );

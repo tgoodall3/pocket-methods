@@ -53,8 +53,18 @@ app.get('/api/mode', (req, res) => {
   });
 });
 
-
-// Add more endpoints as needed
+app.get('/api/levels', (req, res) => {
+  const { instrumentID, modeID, difficultyID } = req.query;
+  db.query(
+    'SELECT * FROM levels',
+    [instrumentID, modeID, difficultyID],
+    (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.json(results);
+  });
+}); 
 
 const PORT = process.env.PORT || 5000;
 

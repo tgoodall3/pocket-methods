@@ -6,26 +6,30 @@ import InstrumentSelection from './Components/Pages/InstrumentSelection';
 import Mode from './Components/Pages/ModeSelect';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
-import InstrumentContext from './Components/InstrumentContext';
-// import ModeSelect from './ModeSelect';
+import GameContext from './Components/GameContext';
+import Level from './Components/Pages/Level';
 
 
 function App() {
   const [instrument, setInstrument] = useState(null);
+  const [mode, setMode] = useState(null);
+  const [difficulty, setDifficulty] = useState(null);
+
 
   return (
     <div className="App">
-          <InstrumentContext.Provider value={{ instrument, setInstrument }}>
-      <Navbar />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path='/instrument' element={<InstrumentSelection />} />
-          <Route path='/mode' element={<Mode />} />
-        </Routes>
-      </Router>
-      <Footer />
-    </InstrumentContext.Provider>
+         <GameContext.Provider value={{ instrument, setInstrument, mode, setMode, difficulty, setDifficulty }}>
+            <Navbar />
+            <Router>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path='/instrument' element={<InstrumentSelection />} />
+                <Route path='/mode' element={<Mode />} />
+                <Route path='/level' element={<Level />} />
+              </Routes>
+            </Router>
+            <Footer />
+            </GameContext.Provider>
     </div>
   );
 }
