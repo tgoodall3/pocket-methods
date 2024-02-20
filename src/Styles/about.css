@@ -1,0 +1,119 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  height: 100%;
+  width: 100%;
+}
+
+.about-container .about-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-image: url('../Assets/images/about\ Background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}   
+
+.about-container h1.about-head{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    padding: 20px;
+    color: white;
+}
+
+.about-container h2{
+    font-size: 2rem;
+    padding: 20px;
+}
+
+.about-container .about-p {
+    padding: 20px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* black with 0.7 opacity */
+    border-radius: 16px;
+}
+
+.about-container p.about-p {
+    font-size: 1.3rem;
+    color: white;
+}
+
+.about-container img.ceoImg {
+    width: 400px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    padding: 50px;
+    border-radius: 50%;
+
+    filter: drop-shadow(0 0 0.75rem #5D20C7);
+}
+
+
+.about-container .ceo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 60px; */
+    margin-bottom: 100px;
+    width: 100%;
+    /* border-bottom: #5D20C7 2px solid; */
+}
+
+.about-container img.banner{   
+    display: flex;
+    width: 99%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: -100px;
+    background-color: #110152;
+    margin-bottom: 100px;
+    border-radius: 16px;
+    filter: drop-shadow(0 0 0.75rem #5D20C7);
+}
+
+.about-container .ceo-info{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+
+}
+
+.about-container .ceo-title p{
+    width: 100%;
+}
+
+.about-container .ceo-info h2{
+    font-size: 2rem;
+}
+
+.about-container .ceo-info p{
+    font-size: 1.1rem;
+}
+
+
+.about-container .content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.about-container p{
+    width: 80%;
+}
+
+.about-container .content img.bw{
+    padding: 50px;
+    filter: drop-shadow(0 0 0.75rem #5D20C7);
+}
+
+

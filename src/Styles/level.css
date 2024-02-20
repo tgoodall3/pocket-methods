@@ -1,0 +1,32 @@
+.levels{
+    height: 80vh;
+    width: 100%;
+    position: relative;
+    padding: 10px;
+}
+
+.levels p{
+    /* padding: 35px;s */
+}
+
+.levels button{
+    margin-left: 200px;
+}
+
+.levels .metronome{
+    margin-top: 200px;
+}
+
+.levels .back .arrow{
+    position: absolute;
+    padding: 0;
+    font-size: 5rem;
+    font-weight: bold;
+    height: 20px;
+}
+
+.levels .back .arrow:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+    color: #5D20C7;   
+}

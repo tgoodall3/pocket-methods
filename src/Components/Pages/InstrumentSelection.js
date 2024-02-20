@@ -83,7 +83,7 @@ import GameContext from '../GameContext';
   
     return (
         <div className='instrument-selection'>
-            <Link className='back' to={'/   '}><p className='arrow'>&#8592;</p></Link>
+            <Link className='back' to={'/'}><p className='arrow'>&#8592;</p></Link>
 
             <h1>Select Your Instrument</h1>
             <button onClick={toggleDropdown}>

@@ -20,7 +20,7 @@
     padding: 1rem 2rem;
     font-size: 1.2rem;
     border: none;
-    background-color: #1b89c8;
+    background-color: #5D20C7;
     color: white;
     cursor: pointer;
     transition: 0.3s;
@@ -51,7 +51,7 @@
    }
 
    .dropdown p:hover {
-    background-color: #5D20C7;
+    background-color: #1b89c8;
    }
 
  .dropdown p{
@@ -82,7 +82,8 @@
     padding: 1rem 1rem;
     font-size: 1.2rem;
     border: none;
-    background-color: #1b89c8;
+    background-color: #5D20C7;
+    filter: brightness(.8);
     color: white;
     cursor: pointer;
     transition: 0.3s;
@@ -94,13 +95,15 @@
 }
 
 .continue-button:hover{
-    background-color: #5D20C7;
+    filter: brightness(1);
+
 }
+
 
 .back {
     position: absolute;
     text-decoration: none;
-    color: #1b89c8;
+    /* color: #5D20C7;    */
     font-size: 4rem;
     font-weight: bold;
     margin: 1rem;
@@ -119,12 +122,13 @@
     font-size: 5rem;
     font-weight: bold;
     height: 20px;
+    color: #5D20C7;
 }
 
 .back .arrow:hover{
     transform: scale(1.1);
     transition: 0.3s;
-    color: #5D20C7;   
+    color: #1b89c8;
 }
 
 

@@ -53,21 +53,74 @@ app.get('/api/mode', (req, res) => {
   });
 });
 
+app.get('/api/skill_modes', (req, res) => {
+  const query = 'SELECT * FROM skill_modes';
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).json({ error: err });
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+
+// app.get('/api/levels', (req, res) => {
+//   const { instrumentID, modeID, difficultyID } = req.query;
+//   db.query(
+//     'SELECT * FROM levels WHERE InstrumentID = ? AND ModeID = ? AND DifficultyID = ?',
+//     [instrumentID, modeID, difficultyID],
+//     (err, results) => {
+//       if (err) {
+//         return res.status(500).json({ error: err.message });
+//       }
+//       res.json(results);
+//     }
+//   );
+// });
+  
+
 app.get('/api/levels', (req, res) => {
-  const { instrumentID, modeID, difficultyID } = req.query;
-  db.query(
-    'SELECT * FROM levels',
-    [instrumentID, modeID, difficultyID],
-    (err, results) => {
+  const { instrument, mode, difficulty, skillMode } = req.query;
+  let query = `
+    SELECT levels.* 
+    FROM levels 
+    INNER JOIN instruments ON levels.InstrumentID = instruments.id
+    INNER JOIN modes ON levels.ModeID = modes.id
+    INNER JOIN difficulties ON levels.DifficultyID = difficulties.id
+  `;
+  let values = [instrument, mode, difficulty];
+
+  if (skillMode) {
+    query += `
+      INNER JOIN skill_modes ON levels.skill_mode_id = skill_modes.id
+      WHERE instruments.name = ? AND modes.name = ? AND difficulties.name = ? AND skill_modes.name = ?
+    `;
+    values.push(skillMode);
+  } else {
+    query += `
+      WHERE instruments.name = ? AND modes.name = ? AND difficulties.name = ?
+    `;
+  }
+
+  console.log(query, values);
+
+  db.query(query, values, (err, results) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
     res.json(results);
   });
-}); 
+});
+
+
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+
+

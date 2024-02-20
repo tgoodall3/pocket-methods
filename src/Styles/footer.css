@@ -1,5 +1,38 @@
 footer{
-    height: 100px;
+    height: 200px;
     width: 100%;
-    background-color: #1b89c8;
+    background-color: #5D20C7;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer img{
+    display: flex;
+    width: 280px;
+    height: 200px;
+
+}
+
+footer .social-icons{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+footer .social-icons a{
+    color: white;
+    font-size: 3rem;
+    padding: 20px;
+    text-decoration: none;
+}
+
+footer .social-icons a:hover{
+    color: #1B89C8;
+    font-weight: 600;
+    transition: 0.3s;
+    font-size: 3.2rem;
 }

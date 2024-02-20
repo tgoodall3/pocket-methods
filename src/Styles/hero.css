@@ -1,11 +1,39 @@
 .hero{
-    background: linear-gradient(rgba(999,999,999,0.5), rgba(137, 105, 192,1)) center/cover no-repeat;
-    height: 80vh;
+    background-image: url(../Assets/images/hero\ bg.png );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh;
     width: 100%;
     text-align: center;
     color: #333;
     position: relative;
+    /* justify-content: space-between; */
+    display: flex;
 }
+
+.ready {
+    width: 17.5%;
+    padding: 1rem 1rem;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #5D20C7;
+    filter: brightness(.8);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 11px;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    text-decoration: none;
+}
+
+.ready:hover{
+    filter: brightness(1);
+
+}
+
 
 .hero h1{
     font-size: 4rem;
@@ -23,12 +51,12 @@
     width: 300px;
     /* margin-left: -620px; */
     float: left;
-
     padding: 1rem 2rem;
     font-size: 1.2rem;
     margin: 0 7.3rem;
     border: none;
-    background-color: #1b89c8;
+    background-color: #5D20C7;
+
     color: white;
     cursor: pointer;
     transition: 0.3s;
@@ -37,7 +65,7 @@
 }
 
 .hero a:hover{
-    background-color: #5D20C7;
+    /* background-color: #1b89c8; */
     width: 300px;
 
 }
@@ -51,11 +79,53 @@
     height: 100%;
     width: 100;
     display: flex;
+    z-index: -1;
+    opacity: 0.4;
 }
 
 .right img{
     overflow: hidden;
 }
+
+.left{
+    width: 45%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+    border-right: 1px solid black;
+}
+
+.hero-info{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 110px;
+    border-left: #5D20C7 2x solid;
+}
+
+.hero-info h2{
+    color: #5D20C7;
+}
+
+.hero-info h3{
+    color: #333;
+}
+
+.hero-info p{
+    font-size: 1.2rem;
+    color: black;
+    margin: 1rem 0;
+    font-weight: 400;
+    /* text-shadow: 2px 2px 4px rgba(999, 999, 999, .7); */
+}
+
+
 
 @media screen and (max-width: 768px){
     .hero h1{
