@@ -1,0 +1,81 @@
+/* register.css */
+
+.register-page {
+    background-color: #ccc2ff;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+  }
+  
+  .register-container {
+    width: 30vw;
+    padding: 20px;
+    background-color: #f3f4f6; /* Add your desired background color */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-container h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .register-container label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .register-container input {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: calc(100% - 22px);
+  }
+  
+  .error-message {
+    font-size: 14px;
+    color: red;
+    font-weight: bold;
+  }
+  
+  .register-container button {
+    width: 20%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+
+  
+  .register-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  .register-container button:hover {
+    background-color: #0056b3;
+}
+  
+  .login-link {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    color: #333;
+  }
+  
+  .login-link a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
