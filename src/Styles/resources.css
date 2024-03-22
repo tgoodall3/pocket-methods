@@ -44,6 +44,7 @@
 .objectives-section{
 
     table {
+        margin-left: 6vw;
         width: 80vw;
         border-collapse: collapse;
     }
