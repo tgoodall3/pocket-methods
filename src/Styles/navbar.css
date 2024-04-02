@@ -94,6 +94,10 @@ nav .logo{
     display: inline-block;
   }
 
+  .links.closed{
+    margin-right: 10vw;
+  }
+
   .links.open ul {
     display: list-item;
     align-items: center;
