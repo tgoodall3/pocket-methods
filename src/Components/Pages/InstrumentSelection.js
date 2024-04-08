@@ -64,7 +64,7 @@ import GameContext from '../GameContext';
         const [instruments, setInstruments] = useState([]);
       
         useEffect(() => {
-          fetch('http://localhost:5000/api/instruments')
+          fetch('http://localhost:3306/api/instruments')
             .then(response => response.json())
             .then(data => setInstruments(data))
             .catch(error => console.error('Error:', error));
