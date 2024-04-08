@@ -21,7 +21,7 @@ function About() {
             <div className='ceo'>
             <img className='ceoImg' src={Charlie} />
             <div className="ceo-info" data-aos='fade-in'>
-            <h3 className="ceo-name">Charlie Edmunds - CEO & Founder</h3>
+            <h3 className="ceo-name">Charlie Edmonds - CEO & Founder</h3>
             <p className="ceo-title">As a middle school band director, I found myself creating beginning band exercises that connected to music content standards and made my students feel seen and heard in their first year of instrumental music learning. For many of my students, Black gospel music was that resonating connection that honored the musical experiences they brought with them to school. Pocket brings this motivating learning experience to the fingertips of any student, teacher, or parent. I hope you enjoy it!</p>
             </div>
             </div>

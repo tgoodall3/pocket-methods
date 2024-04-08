@@ -22,7 +22,7 @@ const Hero = () => {
           Ready to Learn?
         </Link>
       </div>
-      <div className='right'>
+      {/* <div className='right'>
         <img src={right} alt='music' />
       </div>
 
@@ -32,7 +32,7 @@ const Hero = () => {
           As a middle school band director, I found myself creating beginning band exercises that connected to music content standards and made my students feel seen and heard in their first year of instrumental music learning. For many of my students, Black gospel music was that resonating connection that honored the musical experiences they brought with them to school. Pocket brings this motivating learning experience to the fingertips of any student, teacher, or parent. I hope you enjoy it!
         </p>
         <h3>- Charlie Edmonds, Founder of Pocket Methods, LLC</h3>
-      </div>
+      </div> */}
     </div>
   );
 };

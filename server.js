@@ -15,7 +15,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'pocket_methods'
+  database: 'pocket_method'
 });
 
 db.connect((err) => {

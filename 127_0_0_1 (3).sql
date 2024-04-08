@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2024 at 06:07 PM
+-- Generation Time: Feb 20, 2024 at 05:39 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `pocket_methods`
 --
-CREATE DATABASE IF NOT EXISTS `pocket_methods` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE IF NOT EXISTS `pocket_method` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `pocket_methods`;
 
 -- --------------------------------------------------------
@@ -94,7 +94,8 @@ INSERT INTO `levels` (`ID`, `InstrumentID`, `ModeID`, `DifficultyID`, `LevelData
 (3, 1, 2, 1, NULL, '1,2,1 Sheet music', NULL, NULL, NULL),
 (4, 1, 2, 2, NULL, '1,2,2 Sheet music', NULL, NULL, NULL),
 (5, 1, 2, 3, NULL, '1,2,3 Sheet music', NULL, NULL, NULL),
-(6, 1, 1, 1, NULL, '1,1,1,1 Sheet music', NULL, NULL, 1);
+(6, 1, 1, 1, NULL, '1,1,1,1 Sheet music', NULL, NULL, 1),
+(7, 2, 1, 2, NULL, '2,1,2,2 Sheet music', NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
