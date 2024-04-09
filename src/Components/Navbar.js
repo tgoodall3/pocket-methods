@@ -10,6 +10,7 @@ import UserEmail from '../Components/Pages/SignedIn.js';
 
 
 function Navbar() {
+  const { userLoggedIn } = useAuth();
   const [isOpen, setIsOpen] = React.useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -39,12 +40,17 @@ function Navbar() {
     <div className={`links ${isOpen ? 'open' : 'closed'}`}>
   
           <ul>
-            <li>  <UserEmail /> </li>
+            <li> <a href=""><UserEmail /></a>  </li>
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/resources">Resources</a></li>
-            <li className='login'><a href="/login"><FaSignInAlt /></a></li>
-            <li><a href='/' onClick={doSignOut}>Sign Out</a></li> {/* Sign-out button */}
+            <li>
+              {userLoggedIn ? (
+                <a href='/' onClick={doSignOut}>Sign Out</a>
+              ) : (
+                <a href="/login">Login</a>
+              )}
+            </li>
           </ul>
       </div>
       <div className='account'></div>
