@@ -10,6 +10,7 @@ import UserEmail from '../Components/Pages/SignedIn.js';
 
 
 function Navbar() {
+  const { userLoggedIn } = useAuth();
   const [isOpen, setIsOpen] = React.useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const { currentUser } = useAuth();
