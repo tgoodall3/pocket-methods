@@ -12,6 +12,7 @@ import UserEmail from '../Components/Pages/SignedIn.js';
 function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const { currentUser } = useAuth();
 
 
   const toggleMenu = () => {
@@ -21,14 +22,16 @@ function Navbar() {
   return (
     <nav>
       <a href="/" className='logo'>
-      <div className='logo'>
+      <div >
       <img 
+      className='logo'
         data-aos='fade-in' 
         src={isHovered ? logoWhite : logo} 
         alt='logo' 
         onMouseOver={() => setIsHovered(true)}
         onMouseOut={() => setIsHovered(false)}
       /> 
+      <li className="userName"style={{listStyle:'none'}}>  <UserEmail /> </li>
       </div>
       </a>
       <button className='hamburger' onClick={toggleMenu}>
@@ -37,17 +40,20 @@ function Navbar() {
         <div></div>
       </button>
     <div className={`links ${isOpen ? 'open' : 'closed'}`}>
-  
+      
           <ul>
-            <li>  <UserEmail /> </li>
+          {/* <li>  <UserEmail /> </li> */}
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/resources">Resources</a></li>
-            <li className='login'><a href="/login"><FaSignInAlt /></a></li>
-            <li><a href='/' onClick={doSignOut}>Sign Out</a></li> {/* Sign-out button */}
+            {currentUser ? (
+  <li><a href='/' onClick={doSignOut}>Logout</a></li>
+) : (
+  <li className='login'><a href="/login">Login</a></li>
+)}
           </ul>
       </div>
-      <div className='account'></div>
+      {/* <div className='account'></div> */}
     </nav>
   );
 }

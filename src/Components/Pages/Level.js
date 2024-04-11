@@ -3,6 +3,7 @@ import GameContext from '../GameContext';
 import Metronome from '../Metronome';
 import '../../Styles/level.css';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import MotivationBot from '../MotivationBot';
 
 function Level() {
   const { instrument, mode, difficulty, skillMode, setInstrument, setMode, setDifficulty, setSkillMode } = useContext(GameContext);
@@ -11,6 +12,7 @@ function Level() {
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
   const navigate = useNavigate();
   const location = useLocation();
+  const [isBotVisible, setIsBotVisible] = useState(false);
 
   const resetParameters = () => {
     setInstrument(null);
@@ -71,16 +73,39 @@ function Level() {
     }
   };
 
+  const showBot = () => {
+  setIsBotVisible(true);
+  setTimeout(() => setIsBotVisible(false), 5000); // Hide the bot after 5 seconds
+};
+
+useEffect(() => {
+  const intervalId = setInterval(() => {
+    setIsBotVisible(true);
+    setTimeout(() => setIsBotVisible(false), 5000); // Hide the bot after 5 seconds
+  }, 20000); // Show the bot every 2 minutes
+
+  return () => clearInterval(intervalId);
+}, []);
+
+  // console.log(levelData[0].SheetMusic);
+
   return (
     <div className='levels'>
+    {/* <h1 className='instrument'>{instrument}</h1> */}
+    <div className='headLvl'>
+      <h1 className='skillModeLvl'>{skillMode}</h1>
+      <button className='learnMore' onClick={() => navigate('/resources')}>Learn More</button>
+    </div>
     <Link className='back' to={'/instrument'}><p onClick={resetParameters} className='arrow'>&#8592;</p></Link>
-
+    {/* <p>{instrument} {mode} {difficulty} {skillMode}</p> */}
+   <div id="sheet-music-container">
+  {levelData && levelData.length > 0 ? <img src={levelData[0].SheetMusic} alt="Sheet Music" /> : 'Loading...'}
+</div>
+    <div className='buttons'>
       <Metronome />
-      <button onClick={startAudio}>Start Audio</button>
-      <p>{instrument} {mode} {difficulty} {skillMode}</p>
-      <div id="sheet-music-container">
-      {levelData && levelData.length > 0 ? levelData[0].SheetMusic : 'Loading...'}
-      </div>
+    </div>
+
+    {isBotVisible && <MotivationBot />}
     </div>
   );
 }

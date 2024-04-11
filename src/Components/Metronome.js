@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import '../Styles/metronome.css';
 
 function Metronome() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -6,6 +7,9 @@ function Metronome() {
   const audioContextRef = useRef(null);
   const oscillatorRef = useRef(null);
   const intervalRef = useRef(null);
+  const [audioBuffer, setAudioBuffer] = useState(null);
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
 
   const startMetronome = () => {
     setIsPlaying(true);
@@ -31,8 +35,17 @@ function Metronome() {
     setTempo(event.target.value);
   };
 
+  const startAudio = () => {
+    if (audioBuffer) {
+      const source = audioContext.createBufferSource();
+      source.buffer = audioBuffer;
+      source.connect(audioContext.destination);
+      source.start();
+    }
+  };
+
   return (
-    <div>
+<div className="metronome-container">
       <select value={tempo} onChange={handleTempoChange}>
         <option value={40}>40 BPM</option>
         <option value={60}>60 BPM</option>
@@ -43,6 +56,7 @@ function Metronome() {
       ) : (
         <button onClick={startMetronome}>Start Metronome</button>
       )}
+      <button className="start" onClick={startAudio}>Start Audio</button>
     </div>
   );
 }

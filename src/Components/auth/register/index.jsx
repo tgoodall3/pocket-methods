@@ -9,6 +9,7 @@ const Register = () => {
     const navigate = useNavigate()
 
     const [email, setEmail] = useState('')
+    const [displayName, setDisplayName] = useState('');
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [isRegistering, setIsRegistering] = useState(false)
@@ -21,7 +22,7 @@ const Register = () => {
         if (!isRegistering) {
             setIsRegistering(true);
             try {
-                await doCreateUserWithEmailAndPassword(email, password); // Using Firebase authentication method
+                await doCreateUserWithEmailAndPassword(email, password, displayName); // Using Firebase authentication method
                 navigate('/login'); // Redirecting to login page after successful registration
             } catch (error) {
                 setErrorMessage(error.message); // Handling errors
@@ -35,6 +36,16 @@ const Register = () => {
           <div className="register-container"> {/* Container for the registration form */}
             <form onSubmit={onSubmit} className="register-form">
               <h2>Create a New Account</h2>
+              <div>
+                <label>Display Name</label>
+                <input
+                  type="text"
+                  autoComplete="name"
+                  required
+                  value={displayName}
+                  onChange={(e) => setDisplayName(e.target.value)}
+                />
+              </div>
               <div>
                 <label>Email</label>
                 <input

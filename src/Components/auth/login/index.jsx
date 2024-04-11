@@ -17,9 +17,9 @@ const Login = () => {
         if (!isSigningIn) {
             setIsSigningIn(true);
             try {
-                await doSignInWithEmailAndPassword(email, password); // Using Firebase authentication method
+                await doSignInWithEmailAndPassword(email, password); 
             } catch (error) {
-                setErrorMessage(error.message); // Handling errors
+                setErrorMessage(error.message); 
             }
             setIsSigningIn(false);
         }
@@ -39,7 +39,7 @@ const Login = () => {
 
     return (
         <div>
-            {userLoggedIn && <Navigate to={'/login'} replace={true} />}
+            {userLoggedIn && <Navigate to={'/'} replace={true} />}
 
             <main className="login-container">
                 <div className="login-form">

@@ -5,22 +5,24 @@ import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useLocation } from 'react-router-dom';
+import { useAuth } from '../contexts/authContext/index.jsx';
 
 
 const Hero = () => {
+  const { currentUser } = useAuth();
 
   return (
     <div className='hero'>
       <div className='left'>
         <h1>The Beginner's Joyful Universe</h1>
-        <Link
-          to={'/instrument'}
-          className='ready'
-          onMouseOver={(e) => (e.target.innerText = "Let's Go!")}
-          onMouseOut={(e) => (e.target.innerText = "Ready to Learn?")}
-        >
-          Ready to Learn?
-        </Link>
+     <Link
+  to={currentUser ? '/instrument' : '/login'}
+  className='ready'
+  onMouseOver={(e) => (e.target.innerText = currentUser ? "Let's Go!" : "Login First!")}
+  onMouseOut={(e) => (e.target.innerText = "Ready to Learn?")}
+>
+  {currentUser ? "Ready to Learn?" : "Login First!"}
+</Link>
       </div>
       {/* <div className='right'>
         <img src={right} alt='music' />

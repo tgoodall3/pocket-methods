@@ -45,17 +45,17 @@ function ModeSelect() {
         window.location.href = level;
       };
       useEffect(() => {
-        fetch('http://localhost:3306/api/difficulties')
+        fetch('http://localhost:5000/api/difficulties')
           .then(response => response.json())
           .then(data => setDifficulties(data))
           .catch(error => console.error('Error:', error));
       
-        fetch('http://localhost:3306/api/mode')
+        fetch('http://localhost:5000/api/mode')
           .then(response => response.json())
           .then(data => setModes(data))
           .catch(error => console.error('Error:', error));
       
-        fetch('http://localhost:3306/api/skill_modes')
+        fetch('http://localhost:5000/api/skill_modes')
           .then(response => response.json())
           .then(data => setSkillModes(data)) // Corrected here
           .catch(error => console.error('Error:', error));
