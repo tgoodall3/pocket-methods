@@ -39,7 +39,7 @@ const Login = () => {
 
     return (
         <div>
-            {userLoggedIn && <Navigate to={'/'} replace={true} />}
+            {userLoggedIn && <Navigate to={'/instrument'} replace={true} />}
 
             <main className="login-container">
                 <div className="login-form">

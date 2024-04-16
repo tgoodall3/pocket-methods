@@ -16,6 +16,11 @@ function ModeSelect() {
     const [modes, setModes] = useState([]);
     const [selectedSkillMode, setSelectedSkillMode] = useState('');
     const [skillModes, setSkillModes] = useState([]);
+
+    const modeDescriptions = {
+      'Skill' : 'Practice your skills with a variety of exercises',
+      'Quest' : 'Embark on a musical journey with a series of challenges',
+    };
   
   
     const toggleDropdown = () => {
@@ -69,11 +74,11 @@ function ModeSelect() {
             <Link className='back' to={'/instrument'}><p className='arrow'>&#8592;</p></Link>
 
             <div className='mode'>
-  {modes.map(mode => (
-    <div key={mode.id} className={`modes ${selectedMode.name === mode.name ? 'selected' : ''}`}>
-      <img src={mode.image} alt={mode.name} onClick={() => selectMode(mode)} /> 
-    </div>
-  ))}
+{modes.map(mode => (
+  <div key={mode.id} className={`modes ${selectedMode.name === mode.name ? 'selected' : ''}`}>
+    <img src={mode.image} alt={mode.name} title={modeDescriptions[mode.name]} onClick={() => selectMode(mode)} />
+  </div>
+))}
 </div>
 
 {selectedMode && selectedMode.id === 1 && (
@@ -115,66 +120,4 @@ function ModeSelect() {
     );
 }
 
-{/* <div className='mode'>
-<div className={`quest ${selectedDifficulty === 'Quest' ? 'selected' : ''}`}>
-  <img src={Quest} alt='Quest' />
-</div>
-<div className={`skill ${selectedDifficulty === 'Skill' ? 'selected' : ''}`}>
-  <img src={Skill} alt='Skill' />
-</div>
-</div> */}
-
 export default ModeSelect;
-
-
-// import React from 'react';
-// import '../../Styles/modeSelect.css';
-// import '../../Styles/instrumentSelection.css';
-// import Quest from '../../Assets/images/Quest.png';
-// import Skill from '../../Assets/images/Skill.png';
-// import { useState } from 'react';
-// import { Link } from 'react-router-dom';
-
-// function ModeSelect() {
-
-//         const [isOpen, setIsOpen] = useState(false);
-//         const [selectedMode, setSelectedMode] = useState('');
-
-//         const toggleDropdown = () => {
-//             setIsOpen(!isOpen);
-//         };
-
-//         const selectMode = (Mode) => {
-//             setSelectedMode(Mode);
-//             setIsOpen(false);
-//         };
-
-
-//   return (
-//     <div className='modeSelect'>
-//         <Link className='back' to={'/instrument'}><p className='arrow'>&#8592;</p></Link>
-//         <div className='mode'>
-//             <div className={`quest ${selectedMode === 'Quest' ? 'selected' : ''}`}>
-//                 <img src={Quest} alt='Quest' />
-//             </div>
-//             <div className={`skill ${selectedMode === 'Skill' ? 'selected' : ''}`}>
-//                 <img src={Skill} alt='Skill' />
-//             </div>
-//         </div>
-
-//         <button onClick={toggleDropdown}>
-//                     <span className='arrow'>&#8595;</span>
-//                     {selectedMode && <span>{selectedMode}</span>}
-//                 </button>
-//                 {isOpen && (
-//                     <div className='dropdown'>
-//                         <p onClick={() => selectMode('Easy')}>Easy</p>
-//                         <p onClick={() => selectMode('Medium')}>Medium</p>
-//                         <p onClick={() => selectMode('Hard')}>Hard</p>
-//                     </div>
-//                 )}
-//     </div>
-//   );
-// }
-
-// export default ModeSelect;

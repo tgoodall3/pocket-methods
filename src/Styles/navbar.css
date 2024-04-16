@@ -23,6 +23,10 @@ nav a {
   font-size: 1.2rem;
 }
 
+nav .logo:hover {
+  color: white;
+}
+
 nav a:hover {
   color: #1B89C8;
 }
@@ -38,7 +42,7 @@ nav li {
 }
 
 .logo img{
-  height: 110px;
+  height: 120px;
   width: 200px;
   /* margin-top: 10px; */
   z-index: 1000;

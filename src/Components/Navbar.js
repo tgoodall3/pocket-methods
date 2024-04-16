@@ -25,16 +25,18 @@ function Navbar() {
       <a href="/" className='logo'>
       <div >
       <img 
+      
       className='logo'
         data-aos='fade-in' 
-        src={isHovered ? logoWhite : logo} 
+        src={isHovered ? logo : logoWhite} 
         alt='logo' 
         onMouseOver={() => setIsHovered(true)}
         onMouseOut={() => setIsHovered(false)}
       /> 
-      <li className="userName"style={{listStyle:'none'}}>  <UserEmail /> </li>
       </div>
+      <li className="userName"style={{listStyle:'none'}}>  <UserEmail /> </li>
       </a>
+      
       <button className='hamburger' onClick={toggleMenu}>
         <div></div>
         <div></div>

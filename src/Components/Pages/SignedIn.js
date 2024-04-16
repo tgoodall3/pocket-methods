@@ -7,7 +7,7 @@ const UserEmail = () => {
 
 return (
   <div style={{fontSize:'20px', color:'', fontWeight:'bold', listStyle:'none', marginTop:'-40px', marginRight:'15px'}}>
-    {currentUser && <span>Welcome Back {currentUser.displayName}!</span>}
+    {currentUser && <span>Welcome Back, {currentUser.displayName}!</span>}
   </div>
 );
   }
