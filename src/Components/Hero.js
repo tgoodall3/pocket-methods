@@ -6,6 +6,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/authContext/index.jsx';
+import Search from './Search.js';
 
 
 const Hero = () => {
@@ -13,8 +14,9 @@ const Hero = () => {
 
   return (
     <div className='hero'>
+      <Search />
       <div className='left'>
-        <h1>The Beginner's Joyful Universe</h1>
+        <h1 className='oleo-script-bold'>The Beginner's Joyful Universe</h1>
      <Link
   to={currentUser ? '/instrument' : '/login'}
   className='ready'

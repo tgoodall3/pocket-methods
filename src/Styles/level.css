@@ -76,3 +76,16 @@ img{
     flex-wrap: nowrap;
     
 }
+
+#sheet-music-container{
+    position: relative;
+}
+
+#ticker{
+    position: absolute;
+    top: 30px;
+    left: 100px;
+    height: 100px;
+    width: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+}

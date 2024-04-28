@@ -31,6 +31,8 @@ function App() {
   const [mode, setMode] = useState(null);
   const [difficulty, setDifficulty] = useState(null);
   const [skillMode, setSkillMode] = useState(null);
+  const [currentBeat, setCurrentBeat] = useState(0);
+  const [levelName, setLevelName] = useState(null);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -42,7 +44,7 @@ function App() {
   return (
     <AuthProvider>
     <div className="App">
-      <GameContext.Provider value={{ instrument, setInstrument, mode, setMode, difficulty, setDifficulty, skillMode, setSkillMode }}>
+      <GameContext.Provider value={{ instrument, setInstrument, mode, setMode, difficulty, setDifficulty, skillMode, setSkillMode, currentBeat, setCurrentBeat }}>
         <Navbar />
         
         <Router>

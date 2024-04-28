@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
 import '../Styles/metronome.css';
+import { useContext } from 'react';
+import GameContext from './GameContext';
 
 function Metronome() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -10,7 +12,10 @@ function Metronome() {
   const intervalRef = useRef(null);
   const [audioBuffer, setAudioBuffer] = useState(null);
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-  const audioSourceRef = useRef(null);
+  const audioSourceRef = useRef(null); 
+   const { currentBeat, setCurrentBeat } = useContext(GameContext);
+
+   const beatsPerLine = 16;
 
   const startMetronome = () => {
     setIsPlaying(true);
@@ -29,6 +34,7 @@ function Metronome() {
       oscillatorRef.current.connect(audioContextRef.current.destination);
       oscillatorRef.current.start();
       oscillatorRef.current.stop(audioContextRef.current.currentTime + 0.1); 
+      setCurrentBeat((prevBeat) => prevBeat < beatsPerLine * 2 ? prevBeat + 1 : prevBeat); 
     }, 60000 / tempo); 
   };
 
@@ -38,6 +44,8 @@ function Metronome() {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
+
+    setCurrentBeat(0); 
   };
 
   const handleTempoChange = (event) => {
@@ -94,7 +102,8 @@ const toggleAudio = () => {
   />
   <label>{tempo} BPM</label>
 </div>
-  
+<div className="ticker" style={{ left: `${currentBeat * 10}px` }} /> {/* Modify this line */}
+
       <button className="start" onClick={toggleAudio}>{isPlaying ? 'Stop Audio' : 'Start Audio'}</button>
       <label className="switch">
         <input

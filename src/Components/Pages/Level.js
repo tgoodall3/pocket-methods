@@ -6,13 +6,22 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import MotivationBot from '../MotivationBot';
 
 function Level() {
-  const { instrument, mode, difficulty, skillMode, setInstrument, setMode, setDifficulty, setSkillMode } = useContext(GameContext);
+  const { instrument, mode, difficulty, skillMode, setInstrument, setMode, setDifficulty, setSkillMode, levelName, setLevelName} = useContext(GameContext);
   const [levelData, setLevelData] = useState(null);
   const [audioBuffer, setAudioBuffer] = useState(null);
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
   const navigate = useNavigate();
   const location = useLocation();
   const [isBotVisible, setIsBotVisible] = useState(false);
+  const { currentBeat } = useContext(GameContext);
+  const noteWidth = 50;
+
+  const beatsPerLine = 16;
+  const lineHeight = 135; 
+
+  const currentLine = Math.floor(currentBeat / beatsPerLine);
+  const beatInLine = currentBeat % beatsPerLine;
+
 
   const resetParameters = () => {
     setInstrument(null);
@@ -52,9 +61,9 @@ function Level() {
         }
       })
       .catch(error => console.error('Error:', error));
-  }, [instrument, mode, difficulty, skillMode]);
+  }, [instrument, mode, difficulty, skillMode, levelName]);
 
-  console.log(instrument, mode, difficulty, skillMode);
+  console.log(instrument, mode, difficulty, skillMode, levelName);
   // console.log(levelData);  
 
   const fetchAudio = async (url) => {
@@ -93,14 +102,19 @@ useEffect(() => {
     <div className='levels'>
     {/* <h1 className='instrument'>{instrument}</h1> */}
     <div className='headLvl'>
-      <h1 className='skillModeLvl'>{skillMode}</h1>
+    <h1 className='skillModeLvl'>{levelData && levelData.length > 0 ? levelData[0].LevelName : 'Loading...'}</h1>
       <button className='learnMore' onClick={() => navigate('/resources')}>Learn More</button>
     </div>
     <Link className='back' to={'/instrument'}><p onClick={resetParameters} className='arrow'>&#8592;</p></Link>
     {/* <p>{instrument} {mode} {difficulty} {skillMode}</p> */}
-   <div id="sheet-music-container">
-  {levelData && levelData.length > 0 ? <img src={levelData[0].SheetMusic} alt="Sheet Music" /> : 'Loading...'}
-</div>
+    <div id="sheet-music-container">
+    {levelData && levelData.length > 0 ? (
+      <>
+        <img src={levelData[0].SheetMusic} alt="Sheet Music" />
+        <div id="ticker" style={{ left: `${ 182 + beatInLine * noteWidth}px`, top: `${30 + currentLine * lineHeight}px` }} />
+      </>
+    ) : 'Loading...'}
+  </div>
     <div className='buttons'>
       <Metronome />
     </div>

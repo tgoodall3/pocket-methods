@@ -57,6 +57,7 @@ function Navbar() {
           </ul>
       </div>
       {/* <div className='account'></div> */}
+      
     </nav>
   );
 }

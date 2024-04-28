@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Styles/footer.css';
-import FootLogo from '../Assets/images/pocket-tagline.png';
+import FootLogo from '../Assets/images/pocket-logo-four.png';
 import { FaInstagram, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 function Footer() {

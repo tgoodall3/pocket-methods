@@ -1,5 +1,5 @@
 .hero{
-    background-image: url(../Assets/images/hero\ bg.png );
+    background-image: url(../Assets/images/landing2.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -41,6 +41,7 @@
     font-size: 4rem;
     color: #5D20C7;
     width: 80%;
+    font-style: italic;
 }
 
 .hero h2{
